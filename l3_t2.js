@@ -9,19 +9,19 @@ b) Организовать функцию countBasketPrice, которая бу
 function countBasketPrice(basket){
     let count = 0;
     for (item in basket){
-        count += basket[item][1];
+        count += basket[item].price;
     }
     return count
 }
 
 var userBasket = [];
 
-userBasket.push(["Картошка", 50]);
-userBasket.push(["Огурцы", 20]);
-userBasket.push(["Помидоры", 10]);
-userBasket.push(["Кабачки", 15]);
-userBasket.push(["Баклажаны", 25]);
-userBasket.push(["Морковка", 60]);
-userBasket.push(["Свекла", 33]);
+userBasket.push({name: "Картошка", price: 50});
+userBasket.push({name: "Огурцы", price: 20});
+userBasket.push({name: "Помидоры", price: 10});
+userBasket.push({name: "Кабачки", price: 15});
+userBasket.push({name: "Баклажаны", price: 25});
+userBasket.push({name: "Морковка", price: 60});
+userBasket.push({name: "Свекла", price: 33});
 
 console.log(countBasketPrice(userBasket))
