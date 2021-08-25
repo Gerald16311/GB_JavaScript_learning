@@ -1,13 +1,18 @@
 /*1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100.*/
-for (let i = 2;i<=100;i++){
-    isPrime = true
-    for(let y = 2; y<i; y++){
+let i = 2;
+
+while (i<101){
+    isPrime = true;
+    let y = 2
+    while(y < i){
         if (i%y ===0){
             isPrime = false;
             break;
         }
+        y++
     }
     if (isPrime){
         console.log(i)
     }
+    i++
 }
