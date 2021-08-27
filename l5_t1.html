@@ -78,6 +78,7 @@
         // второй вариант, все отрисовывается за 1 раз
         let board_2 = document.createElement("div");
         board_2.className = "board";
+        board_2.id = 'board';
         board_2.insertAdjacentHTML("beforeend", textItem.outerHTML);
 
         for (let i = 1; i < 9; i++) {
