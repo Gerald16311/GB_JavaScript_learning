@@ -1,75 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Марчуков, 1 задание 5 урок</title>
     <style type="text/css">
-        .blockwhite { 
-         width: 18px; 
-         height: 18px;
-         background: rgb(255, 255, 255);
-         border: solid 1px black; 
-         float: left;
+        .blockwhite {
+            width: 18px;
+            height: 18px;
+            background: rgb(255, 255, 255);
+            border: solid 1px black;
+            float: left;
         }
-        .blockblack { 
-         width: 18px; 
-         height: 18px;
-         background: rgb(0, 0, 0); 
-         border: solid 1px black; 
-         float: left;
-        }
-        .blockText{
-         width: 18px; 
-         height: 18px;
-         float: left;
-         text-align: center;
-         border: solid 1px black; 
-        }
-        .board {
-         width: 181px;
-         height: 181px; 
-         border: solid 1px black;  
-        }
-       </style> 
-</head>
-<body>
-Создать функцию, генерирующую шахматную доску. Можно использовать любые html-теги. 
-Доска должна быть верно разлинована на черные и белые ячейки. Строки должны нумероваться 
-числами от 1 до 8, столбцы — латинскими буквами A, B, C, D, E, F, G, H.
-<div id='board' class='board'></div>
-<script>
-    var blackItem = document.createElement("div");
-    blackItem.className = "blockblack";
-    var whiteItem = document.createElement("div");
-    whiteItem.className = "blockwhite";
-    var textItem = document.createElement("div");
-    textItem.className = "blockText";
-    
-    document.getElementById('board').insertAdjacentHTML("beforeend", textItem.outerHTML);
 
-    for (let i = 1; i<9;i++){
-        textItem.innerHTML = String.fromCharCode(64+i);
+        .blockblack {
+            width: 18px;
+            height: 18px;
+            background: rgb(0, 0, 0);
+            border: solid 1px black;
+            float: left;
+        }
+
+        .blockText {
+            width: 18px;
+            height: 18px;
+            float: left;
+            text-align: center;
+            border: solid 1px black;
+        }
+
+        .board {
+            width: 181px;
+            height: 181px;
+            border: solid 1px black;
+        }
+    </style>
+</head>
+
+<body>
+    Создать функцию, генерирующую шахматную доску. Можно использовать любые html-теги.
+    Доска должна быть верно разлинована на черные и белые ячейки. Строки должны нумероваться
+    числами от 1 до 8, столбцы — латинскими буквами A, B, C, D, E, F, G, H.
+    <div id='board' class='board'></div>
+    <script>
+        const blackItem = document.createElement("div");
+        blackItem.className = "blockblack";
+        const whiteItem = document.createElement("div");
+        whiteItem.className = "blockwhite";
+        let textItem = document.createElement("div");
+        textItem.className = "blockText";
+
         document.getElementById('board').insertAdjacentHTML("beforeend", textItem.outerHTML);
-    }
-    for (let i = 1;i <9; i++){
-        textItem.innerHTML = i;
-        document.getElementById('board').insertAdjacentHTML("beforeend", textItem.outerHTML);
-        for(let y =1; y<9;y++){
-            if (i % 2 == 0 && y % 2 == 0){
-                document.getElementById('board').insertAdjacentHTML("beforeend", blackItem.outerHTML);
-            } else if (i % 2 == 0 && y % 2 !=0){
-                document.getElementById('board').insertAdjacentHTML("beforeend", whiteItem.outerHTML);
-            } else if (i % 2 != 0 && y % 2 == 0){
-                document.getElementById('board').insertAdjacentHTML("beforeend", whiteItem.outerHTML);
-            } else if (i % 2 != 0 && y % 2 != 0){
-                document.getElementById('board').insertAdjacentHTML("beforeend", blackItem.outerHTML);
+
+        for (let i = 1; i < 9; i++) {
+            textItem.innerHTML = String.fromCharCode(64 + i);
+            document.getElementById('board').insertAdjacentHTML("beforeend", textItem.outerHTML);
+        }
+        for (let i = 1; i < 9; i++) {
+            textItem.innerHTML = i;
+            document.getElementById('board').insertAdjacentHTML("beforeend", textItem.outerHTML);
+            for (let y = 1; y < 9; y++) {
+                if (i % 2 == 0 && y % 2 == 0) {
+                    document.getElementById('board').insertAdjacentHTML("beforeend", blackItem.outerHTML);
+                } else if (i % 2 == 0 && y % 2 != 0) {
+                    document.getElementById('board').insertAdjacentHTML("beforeend", whiteItem.outerHTML);
+                } else if (i % 2 != 0 && y % 2 == 0) {
+                    document.getElementById('board').insertAdjacentHTML("beforeend", whiteItem.outerHTML);
+                } else if (i % 2 != 0 && y % 2 != 0) {
+                    document.getElementById('board').insertAdjacentHTML("beforeend", blackItem.outerHTML);
+                }
             }
         }
-    }
-
-
-</script>
+    </script>
 </body>
+
 </html>
