@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Марчуков, 2 задание 5 урок</title>
+    <link rel="stylesheet" type="text/css" href="style/l5_t2.css">
 </head>
+
 <body>
-    Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре. Там должен быть только div, в который будет вставляться корзина, сгенерированная на базе JS:
-Пустая корзина должна выводить строку «Корзина пуста»;
-Наполненная должна выводить «В корзине: n товаров на сумму m рублей».
+    Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре. Там должен быть
+    только div, в который будет вставляться
+    корзина, сгенерированная на базе JS:
+    Пустая корзина должна выводить строку «Корзина пуста»;
+    Наполненная должна выводить «В корзине: n товаров на сумму m рублей».
+    <div id='basket' class='basket'>
+        <header>
+            <h1>Корзина</h1>
+        </header>
+        <main>
+            <section id="list">
+                <p>Корзина пуста</p>
+            </section>
+        </main>
+        <footer>
+            <div id="result">Итого - 0р</div>
+        </footer>
+    </div>
+    <button id="addItems">добавить предметы в корзину</button>
+    <button id="clearBasket">очистить корзину</button>
+    <script src="scripts/l5_t2.js"></script>
 </body>
+
 </html>
