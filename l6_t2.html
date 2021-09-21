@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Марчуков Илья 6 урок 2 задание</title>
+    <style>
+        .product {
+            border: 1px;
+            display: inline-block;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    2. Реализовать модуль корзины. Создать блок товаров и блок корзины. У каждого товара есть кнопка «Купить», при
+    нажатии на которую происходит добавление имени и цены товара в блок корзины. Корзина должна уметь считать общую
+    сумму заказа.
+    <div class="basket">
+        <h2>Корзина</h2>
+
+    </div>
+    <div class="product" id="potato"><img src="src/basket/potato.jpg" alt="potato.jpg">
+        <p>Картошка</p>
+        <p>цена = 50р</p>
+        <button id="potato">Купить</button>
+    </div>
+    <div class="product" id="carrot"><img src="src/basket/carrot.jpg" alt="carrot.jpg">
+        <p>Морковка</p>
+        <p>цена = 100р</p>
+        <button id="carrot">Купить</button>
+    </div>
+    <div class="product" id="cabbage"><img src="src/basket/cabbage.jpg" alt="cabbage.jpg">
+        <p>Капуста</p>
+        <p>цена = 150р</p>
+        <button id="cabbage">Купить</button>
+    </div>
+    <div class="product" id="beet"><img src="src/basket/beet.jpg" alt="beet.jpg">
+        <p>Свекла</p>
+        <p>цена = 75р</p>
+        <button id="beet">Купить</button>
+    </div>
+
+    <script>
+        let buttons = document.querySelectorAll("button")
+        let products = document.querySelectorAll(".product")
+
+
+        items_count = {}
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function () {
+                if (buttons[i].id in items_count) {
+                    items_count[buttons[i].id] += 1;
+                } else {
+                    items_count[buttons[i].id] = 1;
+                }
+                console.log(items_count)
+
+                let div_basket = document.createElement('div')
+
+                for (let key in items_count) {
+                    let div_product_in_basket = document.createElement('div');
+                    div_product_in_basket.className += buttons[i].id;
+                    div_product_in_basket.innerHTML = document.querySelector('#' + key).outerText.split("\n")[0] + " штук - " + items_count[key] + " " + document.querySelector('#' + key).outerText.split("\n")[2];
+                    div_basket.insertAdjacentHTML("beforeend", div_product_in_basket.outerHTML)
+                }
+
+                document.querySelector('.basket').innerHTML = "<h2>Корзина</h2>"
+                document.querySelector('.basket').insertAdjacentHTML("beforeend", div_basket.outerHTML)
+
+                let result = document.createElement('div')
+                result.className = "result"
+                result.innerHTML = "Итого = "
+                money_count = 0
+                for (let key in items_count) {
+                    item_cost = document.querySelector('#' + key).outerText.split("\n")[2].replace(/\s/g, '').split("=")[1].split("р")[0];
+                    money_count += items_count[key] * item_cost
+                }
+                console.log(money_count)
+                result.insertAdjacentHTML("beforeend", money_count)
+
+                document.querySelector('.basket').insertAdjacentHTML("beforeend", result.outerHTML)
+            })
+        }
+    </script>
+</body>
+
+</html>

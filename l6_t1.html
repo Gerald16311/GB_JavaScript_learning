@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Марчуков Илья 6 урок 1 задание</title>
+</head>
+<body>
+    1. Доработать функцию замены картинки в галерее таким образом, чтобы она проверяла наличие картинки по указанному в src адресу.
+    <br>
+    <img src="src/small/1.jpg" alt="1.jpg" width="400px" height="400px">
+    <img src="src/small/2.jpg" alt="2.jpg" width="400px" height="400px">
+    <img src="src/small/3.jpg" alt="3.jpg" width="400px" height="400px">
+    <div class="big_image"></div>
+    <script>
+        // выборка всех объектов img
+        let img_items = document.querySelectorAll("img");
+        // добавление эвента онклик на все объекты img
+        for (let i =0; i < img_items.length; i++){
+            img_items[i].onclick = function(){
+                // создание нового объекта img с ссылкой на папку с большими картинками
+                let img = document.createElement('img');
+                img.src = ('src/big/'+ (i+1) +'.jpg'); 
+                img.class = "big_image";
+                // показ ошибки если объекта нет
+                img.onerror = function() {
+                    alert("Ошибка во время загрузки изображения");
+                };
+                // Вывод нового изображения на страницу
+                    document.querySelector(".big_image").innerHTML = img.outerHTML;
+                }
+            }
+    </script>
+
+</body>
+</html>
