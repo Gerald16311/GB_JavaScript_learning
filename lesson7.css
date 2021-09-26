@@ -26,6 +26,11 @@ td.game-table-cell{
 .food-unit{
     background-color: red;
 }
+/*класс блока вкоторый змейка может врезаться */
+.block-unit{
+    background-color: yellow;
+}
+
 .buttons{
     display: inline-block;
 }

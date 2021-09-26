@@ -172,7 +172,8 @@ function haveFood(unit) {
         check = true;
         createFood();
         score++;
-        
+        // добавиление количества очков на игровое поле
+        document.querySelector('.score').innerHTML = "Очки = " + score
     }
     return check;
 }
