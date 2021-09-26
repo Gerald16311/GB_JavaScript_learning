@@ -131,6 +131,9 @@ function move() {
         new_unit.setAttribute('class', new_unit.getAttribute('class') + ' snake-unit');
         snake.push(new_unit);
 
+        if (haveBlock(new_unit)){
+            finishTheGame();
+        }
         // Проверяем, надо ли убрать хвост
         if (!haveFood(new_unit)) {
             // Находим хвост
@@ -140,8 +143,6 @@ function move() {
             // удаляем хвост
             removed.setAttribute('class', classes[0] + ' ' + classes[1]);
         }
-    } else if (new_unit.hasAttribute('block-unit')){
-        finishTheGame();
     }
     else {
         finishTheGame();
@@ -180,6 +181,13 @@ function haveFood(unit) {
         document.querySelector('.score').innerHTML = "Очки = " + score
     }
     return check;
+}
+
+
+function haveBlock(unit) {
+    var unit_classes = unit.getAttribute('class').split(' ');
+    console.log(unit_classes);
+    return unit_classes.includes('block-unit')
 }
 
 /**
